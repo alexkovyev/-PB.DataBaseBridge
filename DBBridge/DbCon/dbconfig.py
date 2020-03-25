@@ -52,4 +52,6 @@ class dbconfig:
         config.set('DbConnection', 'DbPassword', dbconfig.__dbpassword)
 
         with open(dbconfig.__path_to_config, "w") as config_file:
-            config.write(config_file)        
+            config.write(config_file) 
+
+dbconfig.load_from_config()
