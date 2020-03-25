@@ -13,6 +13,20 @@ class dbconfig:
 
     __path_to_config = Path("cfg/cfg.config")
 
+    #
+    #   Return dict
+    #
+    @staticmethod
+    def to_dict():
+        dbDict = {}
+        dbDict['dbhost'] = dbconfig.__dbhost
+        dbDict['dbport'] = dbconfig.__dbport
+        dbDict['dbuser'] = dbconfig.__dbuser
+        dbDict['dbname'] = dbconfig.__dbname
+        dbDict['dbpassword'] = dbconfig.__dbpassword
+
+        return dbDict
+
     # 
     #   Load connection string from config file
     #
@@ -24,8 +38,6 @@ class dbconfig:
         dbconfig.__dbhost = config.get('DbConnection', 'DbHost')
         dbconfig.__dbuser = config.get('DbConnection', 'DbUser')
         dbconfig.__dbpassword = config.get('DbConnection', 'DbPassword')
-
-        return (dbconfig.__dbhost, dbconfig.__dbport, dbconfig.__dbname, dbconfig.__dbuser, dbconfig.__dbpassword)
 
     #
     #   Save connection string to config file
@@ -41,6 +53,3 @@ class dbconfig:
 
         with open(dbconfig.__path_to_config, "w") as config_file:
             config.write(config_file)        
-
-
-
