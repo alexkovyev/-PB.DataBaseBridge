@@ -54,4 +54,5 @@ class dbconfig:
         with open(dbconfig.__path_to_config, "w") as config_file:
             config.write(config_file) 
 
+dbconfig.apply()
 dbconfig.load_from_config()
