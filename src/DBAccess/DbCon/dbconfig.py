@@ -1,4 +1,5 @@
 import configparser
+import os.path
 
 #
 #   This class for the conncetion to DataBase
@@ -10,7 +11,7 @@ class dbconfig:
     __dbport = 5432
     __dbpassword = 'passVVord#'
 
-    __path_to_config = "DBAccess/config/config.ini"
+    __path_to_config = os.path.abspath('..') + '/config/config.ini'
 
     #
     #   Return dict
