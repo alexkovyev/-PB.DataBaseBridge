@@ -22,7 +22,7 @@ setuptools.setup(
 
     # extra data for the package
     package_data={
-        "config": ["*.ini",],
+        "DBAccess.config": ["*.ini",],
     },
 
     # metadata to displat on PyPI

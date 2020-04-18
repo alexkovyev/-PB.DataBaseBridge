@@ -22,7 +22,7 @@ class BridgeError(Exception):
         )
 
 
-class db_bridge():
+class dbbridge():
     """
     Class for executing queries against DB\n
     It automaticly connects to the DB by taking connection parameters from dbconfig class\n
