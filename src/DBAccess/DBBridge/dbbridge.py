@@ -53,7 +53,7 @@ class dbbridge():
                                        host=conn_params['dbhost'],
                                        port=conn_params['dbport'],
                                        database=conn_params['dbname'],
-                                       connect_timeout=db_bridge.connection_timeout_sec)
+                                       connect_timeout=dbbridge.connection_timeout_sec)
 
     def execute_db_proc_with_params(self, proc_name, param_list=None):
         try:
