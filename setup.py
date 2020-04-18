@@ -23,7 +23,7 @@ setuptools.setup(
     # extra data for the package
     package_data={
         "": ["*.ini",],
-    }
+    },
 
     # metadata to displat on PyPI
     author="Vadim VZ. Zhdanov",
@@ -36,7 +36,7 @@ setuptools.setup(
         "Bug Tracker" : "https://github.com/alexkovyev/-PB.DataBaseBridge/issues",
         "Documentation": "",
         "Source Code": "https://github.com/alexkovyev/-PB.DataBaseBridge",
-    }
+    },
     classifiers=[
         "License :: OSI Approved :: Python Software Foundation License"
     ]
