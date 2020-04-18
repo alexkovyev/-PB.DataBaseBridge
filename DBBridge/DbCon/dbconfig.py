@@ -11,7 +11,7 @@ class dbconfig:
     __dbport = 5432
     __dbpassword = 'passVVord#'
 
-    __path_to_config = Path("cfg/cfg.config")
+    __path_to_config = "./cfg/config.ini"
 
     #
     #   Return dict
@@ -54,5 +54,4 @@ class dbconfig:
         with open(dbconfig.__path_to_config, "w") as config_file:
             config.write(config_file) 
 
-dbconfig.apply()
 dbconfig.load_from_config()

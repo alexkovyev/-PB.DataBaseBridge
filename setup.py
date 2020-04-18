@@ -2,6 +2,14 @@ import setuptools
 
 setuptools.setup(
     name="DBBridge",
-    packages=setuptools.find_packages()
-    
+    version="0.1dev",
+    packages=setuptools.find_packages(exclude=['tests']),
+    author="Vadim VZ Zhdanov",
+    author_email="vz.vadia@gmail.com",
+    description="Package for database access",
+    url="https://github.com/alexkovyev/-PB.DataBaseBridge",
+    license='MIT',
+    long_description=open('README.md').read(),
+    include_package_data=True,
+    package_data={'cfg': ['cfg/config.ini']},
 )
