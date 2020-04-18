@@ -11,8 +11,8 @@ with open('requirements.txt') as fd:
             install_requires.append(full_line)
 
 setuptools.setup(
-    name="DBAccess.DBBridge",
-    version="0.2.dev0",
+    name="DBAccess",
+    version="0.3.dev0",
     package_dir={"": "src"},
     packages=setuptools.find_namespace_packages(exclude=['tests'], where="src"),
     scripts=[],
@@ -22,7 +22,7 @@ setuptools.setup(
 
     # extra data for the package
     package_data={
-        "": ["*.ini",],
+        "config": ["*.ini",],
     },
 
     # metadata to displat on PyPI

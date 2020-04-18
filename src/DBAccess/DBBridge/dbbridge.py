@@ -1,5 +1,5 @@
 import psycopg2
-from .DbCon.dbconfig import dbconfig
+from DBAccess.DbCon import dbconfig
 
 
 class BridgeError(Exception):
