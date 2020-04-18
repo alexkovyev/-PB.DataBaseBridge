@@ -11,7 +11,7 @@ class dbconfig:
     __dbport = 5432
     __dbpassword = 'passVVord#'
 
-    __path_to_config = os.path.abspath('..') + '/config/config.ini'
+    __path_to_config = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + '/config/config.ini'
 
     #
     #   Return dict
