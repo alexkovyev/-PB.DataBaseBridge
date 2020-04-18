@@ -4,6 +4,7 @@ setuptools.setup(
     name="DBBridge",
     version="0.1dev",
     packages=setuptools.find_packages(exclude=['tests']),
+    install_reqs = parse_requirements('requirements.txt', session='hack'),
     author="Vadim VZ Zhdanov",
     author_email="vz.vadia@gmail.com",
     description="Package for database access",
