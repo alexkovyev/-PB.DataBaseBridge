@@ -1,10 +1,11 @@
 import setuptools
+import pkg_resources
 
 setuptools.setup(
     name="DBBridge",
     version="0.1dev",
     packages=setuptools.find_packages(exclude=['tests']),
-    install_reqs = setuptools.parse_requirements('requirements.txt', session='hack'),
+    install_reqs = pkg_resources.parse_requirements('requirements.txt', session='hack'),
     author="Vadim VZ Zhdanov",
     author_email="vz.vadia@gmail.com",
     description="Package for database access",
