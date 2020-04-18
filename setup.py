@@ -12,7 +12,7 @@ with open('requirements.txt') as fd:
 
 setuptools.setup(
     name="DBAccess",
-    version="0.3.dev0",
+    version="0.4.dev0",
     package_dir={"": "src"},
     packages=setuptools.find_namespace_packages(exclude=['tests'], where="src"),
     scripts=[],
