@@ -1,5 +1,5 @@
 import psycopg2
-from .DbCon.dbconfig import dbconfig
+from DBAccess.DbCon.dbconfig import DBConfig
 
 
 class BridgeError(Exception):
@@ -22,10 +22,10 @@ class BridgeError(Exception):
         )
 
 
-class db_bridge():
+class DBBridge:
     """
     Class for executing queries against DB\n
-    It automaticly connects to the DB by taking connection parameters from dbconfig class\n
+    It automatically connects to the DB by taking connection parameters from dbconfig class\n
     It also closes connection when object is destroyed and cursor when query is executed
 
     Raises 
@@ -47,21 +47,21 @@ class db_bridge():
         """
         Creates DB connection and saves it to a __conn var
         """
-        conn_params = dbconfig.to_dict()
+        conn_params = DBConfig.to_dict()
         self.__conn = psycopg2.connect(user=conn_params['dbuser'],
                                        password=conn_params['dbpassword'],
                                        host=conn_params['dbhost'],
                                        port=conn_params['dbport'],
                                        database=conn_params['dbname'],
-                                       connect_timeout=db_bridge.connection_timeout_sec)
+                                       connect_timeout=DBBridge.connection_timeout_sec)
 
     def execute_db_proc_with_params(self, proc_name, param_list=None):
         try:
             self.__cur = self.__conn.cursor()
 
-            query = self.__query_for_invoking_db_proc(proc_name, len(param_list))
+            query = self.__query_for_invoking_db_proc(proc_name,
+                                                      len(param_list) if param_list is not None else 0)
             self.__cur.execute(query, param_list)
-            self.__conn.commit()
 
             return self.__cur.fetchall()
 
@@ -69,6 +69,7 @@ class db_bridge():
             raise BridgeError(proc_name, param_list, error)
 
         finally:
+            self.__conn.commit()
             if self.__cur:
                 self.__cur.close()
 
